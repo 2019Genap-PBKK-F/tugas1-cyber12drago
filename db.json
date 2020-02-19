@@ -1,0 +1,17 @@
+{
+  "mahasiswa": [
+    {
+      "id": 1,
+      "nrp": "05111740000097",
+      "nama": "Muhammad Naufal Refadi",
+      "angkatan": "2017",
+      "jenis_kelamin": "Laki-Laki",
+      "tgl_lahir": "2017-04-23",
+      "photo": "",
+      "aktif": true
+    },
+    {
+      "id": 2
+    }
+  ]
+}
