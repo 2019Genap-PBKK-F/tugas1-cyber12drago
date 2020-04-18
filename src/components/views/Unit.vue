@@ -13,7 +13,8 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://localhost:8019/'
+// var host = 'http://10.199.14.46:8018/'
+var host = 'http://localhost:8010/'
 
 export default {
   // name: 'App',
@@ -42,8 +43,8 @@ export default {
           responsive: true,
           columns: [
             { type: 'hidden', title: 'id', width: '10px' },
-            { type: 'dropdown', title: 'KategoriUnit_id', url: host + 'api/kategori/', width: '120px' },
-            { type: 'text', title: 'nama', width: '120px' }
+            { type: 'dropdown', title: 'Kategori', url: host + 'api/kategori/', width: '120px' },
+            { type: 'text', title: 'Nama', width: '120px' }
           ]
         }
         let spreadsheet = jexcel(this.$el, jexcelOptions)

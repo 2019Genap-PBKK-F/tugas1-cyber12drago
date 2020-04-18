@@ -13,9 +13,9 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://localhost:8019/api/capaianunit/'
-var dropdownDataDasar = 'http://localhost:8019/api/datadasar/nama/'
-var dropdownUnit = 'http://localhost:8019/api/namaunit/'
+var host = 'http://localhost:8019/api/capaian-unit/'
+var dropdownDataDasar = 'http://localhost:8019/api/data-dasar/nama/'
+var dropdownSatuanKerja = 'http://localhost:8019/api/satuan-kerja/nama/'
 
 export default {
   // name: 'App',
@@ -23,8 +23,8 @@ export default {
     return {
       capaianUnit: [],
       form: {
-        DataDasar_id: 1,
-        Unit_id: 1,
+        id_satker: 'aff',
+        id_datadasar: 1,
         capaian: 0.0
       }
     }
@@ -45,8 +45,8 @@ export default {
           ondeleterow: this.deleteRow,
           responsive: true,
           columns: [
+            { type: 'dropdown', title: 'Satuan Kerja', url: dropdownSatuanKerja, width: '120px' },
             { type: 'dropdown', title: 'Data Dasar', url: dropdownDataDasar, width: '120px' },
-            { type: 'dropdown', title: 'Unit', url: dropdownUnit, width: '120px' },
             { type: 'text', title: 'Waktu', width: '200px', readOnly: true },
             { type: 'text', title: 'Capaian', width: '120px' }
           ]

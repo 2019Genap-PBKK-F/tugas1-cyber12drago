@@ -11,11 +11,14 @@ import AccessView from './components/views/Access.vue'
 import ServerView from './components/views/Server.vue'
 import ReposView from './components/views/Repos.vue'
 import JexcelView from './components/views/Jexcel.vue'
-import DataDasarView from './components/views/DataDasar.vue'
-import CapaianUnitView from './components/views/CapaianUnit.vue'
-import UnitView from './components/views/Unit.vue'
 import KategoriUnitView from './components/views/KategoriUnit.vue'
-
+import CapaianUnitView from './components/views/CapaianUnit.vue'
+import DataDasarView from './components/views/DataDasar.vue'
+import JenisSatkerView from './components/views/JenisSatker.vue'
+import PeriodeView from './components/views/Periode.vue'
+import MasterIndikatorView from './components/views/MasterIndikator.vue'
+import IndikatorPeriodeView from './components/views/IndikatorPeriode.vue'
+import SatuanKerjaView from './components/views/SatuanKerja.vue'
 // Routes
 const routes = [
   {
@@ -78,14 +81,34 @@ const routes = [
         name: 'CapaianUnit',
         meta: {description: 'List of popular javascript repos'}
       }, {
-        path: 'unit',
-        component: UnitView,
-        name: 'Unit',
-        meta: {description: 'List of popular javascript repos'}
-      }, {
         path: 'kategoriunit',
         component: KategoriUnitView,
         name: 'KategoriUnit',
+        meta: {description: 'List of popular javascript repos'}
+      }, {
+        path: 'jenissatker',
+        component: JenisSatkerView,
+        name: 'JenisSatker',
+        meta: {description: 'List of popular javascript repos'}
+      }, {
+        path: 'periode',
+        component: PeriodeView,
+        name: 'Periode',
+        meta: {description: 'List of popular javascript repos'}
+      }, {
+        path: 'masterindikator',
+        component: MasterIndikatorView,
+        name: 'MasterIndikator',
+        meta: {description: 'List of popular javascript repos'}
+      }, {
+        path: 'indikatorperiode',
+        component: IndikatorPeriodeView,
+        name: 'IndikatorPeriode',
+        meta: {description: 'List of popular javascript repos'}
+      }, {
+        path: 'satuankerja',
+        component: SatuanKerjaView,
+        name: 'SatuanKerja',
         meta: {description: 'List of popular javascript repos'}
       }
     ]

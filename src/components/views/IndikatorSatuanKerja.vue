@@ -14,14 +14,22 @@ import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
 var host = 'http://localhost:8019/'
+var dropdownSatuanKerja = 'http://localhost:8019/api/satuankerja/nama/'
+var dropdownMasterIndikator = 'http://localhost:8019/api/masterindikator/nama/'
+var dropdownPeriode = 'http://localhost:8019/api/periode/nama/'
 
 export default {
   // name: 'App',
   data() {
     return {
-      dataDasar: [],
+      masterIndikator: [],
       form: {
-        nama: 'New Data'
+        id_periode: 2020,
+        id_master: 1,
+        id_satker: 'nv1',
+        bobot: 0.0,
+        target: 0.0,
+        capaian: 0.0
       }
     }
   },
@@ -30,7 +38,7 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host + 'api/datadasar/').then(res => {
+      axios.get(host + 'api/indikatorsatuankerja/').then(res => {
         console.log(res.data)
         var jexcelOptions = {
           data: res.data,
@@ -40,11 +48,13 @@ export default {
           ondeleterow: this.deleteRow,
           responsive: true,
           columns: [
-            { type: 'hidden', title: 'id', width: '10px' },
-            { type: 'text', title: 'Nama', width: '120px' },
-            { type: 'text', title: 'Create Date', width: '200px', readOnly: true },
-            { type: 'text', title: 'Last Update', width: '200px', readOnly: true },
-            { type: 'text', title: 'Expired Date', width: '200px' }
+            { type: 'dropdown', title: 'Periode', url: dropdownPeriode, width: '120px' },
+            { type: 'dropdown', title: 'Master Indikator', url: dropdownMasterIndikator, width: '120px' },
+            { type: 'dropdown', title: 'Satker', url: dropdownSatuanKerja, width: '120px' },
+            { type: 'text', title: 'Bobot', width: '120px' },
+            { type: 'text', title: 'Target', width: '120px' },
+            { type: 'text', title: 'Capaian', width: '120px' },
+            { type: 'text', title: 'Last Update', width: '120px', readOnly: true },
           ]
         }
         let spreadsheet = jexcel(this.$el, jexcelOptions)
@@ -52,32 +62,33 @@ export default {
       })
     },
     newRow() {
-      axios.post(host + 'api/datadasar/', this.form).then(res => {
+      axios.post(host + 'api/indikatorsatuankerja/', this.form).then(res => {
         console.log(res.data)
       })
     },
     updateRow(instance, cell, columns, row, value) {
-      axios.get(host + 'api/datadasar/').then(res => {
+      axios.get(host + 'api/indikatorsatuankerja/').then(res => {
         var index = Object.values(res.data[row])
         index[columns] = value
         console.log(index)
-        axios.put(host + 'api/datadasar/' + index[0], {
-          id: index[0],
-          nama: index[1],
-          create_date: index[2],
-          last_update: index[3],
-          expired_date: index[4]
+        axios.put(host + 'api/indikatorsatuankerja/' + index[0] + '&' + index[1] + '&' + index[2], {
+          id_periode: index[0],
+          id_master: index[1],
+          id_satker: index[2],
+          bobot: index[3],
+          target: index[4],
+          capaian: index[5]
         }).then(res => {
           console.log(res.data)
         })
       })
     },
     deleteRow(instance, row) {
-      axios.get(host + 'api/datadasar/').then(res => {
+      axios.get(host + 'api/indikatorsatuankerja/').then(res => {
         var index = Object.values(res.data[row])
         // console.log(index)
         console.log(row)
-        axios.delete(host + 'api/datadasar/' + index[0])
+        axios.delete(host + 'api/indikatorsatuankerja/' + index[0] + '&' + index[1] + '&' + index[2])
       })
     }
   }
