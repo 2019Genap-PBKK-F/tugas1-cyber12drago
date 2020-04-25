@@ -13,6 +13,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
+// var host = 'http://10.199.14.46:8019/' //
 var host = 'http://localhost:8019/'
 var dropdownMasterIndikator = 'http://localhost:8019/api/masterindikator/nama/'
 var dropdownPeriode = 'http://localhost:8019/api/periode/nama/'

@@ -13,6 +13,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
+// var host = 'http://10.199.14.46:8019/'
 var host = 'http://localhost:8019/'
 
 export default {
@@ -21,7 +22,7 @@ export default {
     return {
       periode: [],
       form: {
-        nama: 'blank'
+        nama: 'New Data'
       }
     }
   },

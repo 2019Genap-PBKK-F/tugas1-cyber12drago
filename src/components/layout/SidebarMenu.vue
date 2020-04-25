@@ -36,6 +36,11 @@
           </a>
         </li>
         <li>
+          <a href="/aspek">
+            <i class="fa fa-address-book-o"></i> Aspek
+          </a>
+        </li>
+        <li>
           <a href="/jenissatker">
             <i class="fa fa-address-book-o"></i> Jenis Satker
           </a>
@@ -68,6 +73,11 @@
         <li>
           <a href="/indikatorsatker">
             <i class="fa fa-address-book-o"></i> Indikator Satker
+          </a>
+        </li>
+        <li>
+          <a href="/indikatorsatkerlog">
+            <i class="fa fa-address-book-o"></i> Indikator Satker Log
           </a>
         </li>
       </ul>
